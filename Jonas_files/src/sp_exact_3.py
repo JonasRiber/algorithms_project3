@@ -88,7 +88,7 @@ def sp_exact_3(A, B, C, gap_cost, score_matrix, hide_alignments=False):
                 if i>=0 and j>0 and k>=0:               # No matches
                     v6 = dp[i][j-1][k] + gap_cost + gap_cost
                 if i>=0 and j>=0 and k>0:               # No matches
-                    v7 = dp[i][j][k-1] + gap_cost + gap_cost
+                    v7 = dp[i][j][k-1] + gap_cost + gap_cost    
                 
                 dp[i][j][k] = min(v0, v1, v2, v3, v4, v5, v6, v7)
 
@@ -169,6 +169,7 @@ def main():
 
     # load fasta file with seqs
     sequence_dct = read_fasta_file(fasta_file)
+    print(sequence_dct)
     
     sequence_lst = [] # convert dct values to list
     iterator = iter(sequence_dct.values()) # Extracting the sequences without their corresponding headers and putting them into a list
